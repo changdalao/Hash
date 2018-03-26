@@ -6,7 +6,7 @@
 typedef struct BitMap
 {
 	size_t* _bits;
-	size_t range;//范围
+	size_t range;//鑼冨洿
 }BitMap;
 void BitMapInit(BitMap* bm, size_t range)
 {
@@ -15,9 +15,9 @@ void BitMapInit(BitMap* bm, size_t range)
 	memset(bm->_bits, 0, sizeof(size_t)*(range / 32 + 1));
 }
 void BitMapSet(BitMap* bm,size_t x)
-{
-	size_t index = x / 32;//第几个数
-	size_t num = x % 32;//第几个位
+{ 
+	size_t index = x / 32;//绗嚑涓暟
+	size_t num = x % 32;//绗嚑涓綅
 	bm->_bits[index] |= (1 << num);
 }
 void BitMapRset(BitMap* bm, size_t x)
@@ -30,7 +30,7 @@ int BitMapTest(BitMap* bm, size_t x)
 {
 	size_t index = x / 32;
 	size_t num = x % 32;
-	if (bm->_bits[index] & (1 << num))//存在返回0
+	if (bm->_bits[index] & (1 << num))//瀛樺湪杩斿洖0
 		return 0;
 	else 
 		return -1;
